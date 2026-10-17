@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { background: #fff; color: #0f172a; }
+::selection { background: #d9f99d; color: #0f172a; }
+.container-pad { width: 100%; max-width: 80rem; margin-inline: auto; padding-inline: 1rem; }
+@media (min-width: 640px) { .container-pad { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) { .container-pad { padding-inline: 2rem; } }
+.hero-grid { background-image: radial-gradient(circle at 75% 25%, rgba(190,242,100,.18), transparent 28%), linear-gradient(135deg,#111827 0%,#172033 52%,#293448 100%); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }

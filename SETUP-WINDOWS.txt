@@ -1,0 +1,24 @@
+WINDOWS QUICK START (PowerShell)
+
+1. Install Node.js 22 LTS.
+2. Open PowerShell in this project folder.
+3. Create a PostgreSQL database locally or with a provider such as Neon or Supabase.
+4. Run: npm install
+5. Run: Copy-Item .env.example .env
+6. Edit .env: set DATABASE_URL to your PostgreSQL connection string; set SESSION_PASSWORD (32+ random characters), PAYSTACK_SECRET_KEY (test key), PAYSTACK_CURRENCY (USD to match seeded prices), RESEND_API_KEY, and EMAIL_FROM.
+7. Run: npm run db:push
+8. Run: npm run db:seed
+9. Run: npm run dev
+10. Open http://localhost:3000
+
+PAYSTACK TEST CHECKOUT
+- Use test keys from https://dashboard.paystack.com/.
+- In Paystack Dashboard, set webhook URL to https://YOUR-PUBLIC-TUNNEL/api/paystack/webhook. Use an HTTPS tunnel for local development; Paystack cannot send webhooks to localhost.
+- Callback verification is handled by /api/paystack/callback. Never mark an order paid based on a browser redirect alone.
+
+DATABASE
+- Uses PostgreSQL. DATABASE_URL must be a PostgreSQL connection string (postgresql://...).
+
+EMAIL
+- Uses Resend for order confirmation emails. Set RESEND_API_KEY and EMAIL_FROM in `.env`.
+- Verify your sending domain in Resend and use an address on that domain.
